@@ -2,8 +2,9 @@
 
 # Project Overview
 This MSc Data Science project analyses daily public-transport footfall at two London stations between 1 January 2024 and 27 December 2025:
-- King’s Cross St Pancras: a high-volume central interchange with mixed commuter, leisure and interchange demand.
-- Roding Valley: a low-volume suburban station with a clearer commuter-led weekly pattern.
+
+- **King’s Cross St Pancras**: a high-volume central interchange with mixed commuter, leisure and interchange demand.
+- **Roding Valley**: a low-volume suburban station with a clearer commuter-led weekly pattern.
 
 The project compares station demand patterns, detects unusual observations, and evaluates statistical and machine-learning forecasting models.
 
@@ -38,17 +39,19 @@ Users should obtain, use, and share the source data according to TfL’s applica
 
 # Analytical Workflow
 
-The notebook follows this workflow:
-1.Load the station footfall dataset.
-2.Clean column names, dates, station names, and tap-count values.
+The notebook follows this workflow: 
+
+1. Load the station footfall dataset.
+2. Clean column names, dates, station names, and tap-count values.
 3. Create the target variable:
-              Footfall = EntryTapCount + ExitTapCount   
+      `Footfall = EntryTapCount + ExitTapCount`
 4. Filter the data to King’s Cross St Pancras and Roding Valley.
 5. Aggregate duplicate station-date records.
 6. Reindex each station to a complete daily time series.
-7. Impute missing observations using weekday-median imputation, time interpolation, and forward/backward completion.
+7. Impute missing observations using weekday-median imputation, time interpolation, and forward/
+backward completion.
 8. Create calendar features including weekday, weekend flag, month, day, and ISO week number.
-9. Perform exploratory data analysis, anomaly detection, forecasting, and model evaluation.
+9. Perform exploratory data analysis, anomaly detection, forecasting, and model evaluation
 
 # Exploratory Data Analysis
 
@@ -79,7 +82,7 @@ The XGBoost model uses:
 -Rolling mean, standard deviation, minimum, and maximum
 - Calendar variables: weekday, weekend indicator, month, day, and ISO week number
 
-# Hyperparameter Tuning
+## Hyperparameter Tuning
 XGBoost tuning uses `TimeSeriesSplit(n_splits=3)` to preserve chronological order and avoid future data leakage.
 
 The following search grid contains `216 candidate combinations`:
@@ -174,6 +177,7 @@ The analysis is performed only at station level. Findings are interpreted carefu
 
  ## Future Improvements
 Future work could include:
+
 - More stations and station categories
 - Weather and holiday variables
 - Real-time disruption indicators
@@ -184,7 +188,9 @@ Future work could include:
 
 ## Author
 Hari Raja Mohan
+
 MSc Data Science Project
+
 University of Hertfordshire
 
 ## License
